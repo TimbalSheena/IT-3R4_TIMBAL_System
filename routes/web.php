@@ -25,15 +25,14 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 $router->get('/users',['uses' => 'UserController@getUsers']);
 $router->get('/login', 'UserController@Login');
 $router->post('/home', 'UserController@test');
-//$router->post('/users',['uses' => 'UserController@create']);
+
+//index
 $router->get('/', 'UserController@index');
-
-//Route::post('users', [UserController::class,'create']);
-    
 $router->post('/users', 'UserController@create');
-
 $router->get('/users/{id}', 'UserController@read');
-
 $router->put('/users/{id}', 'UserController@update');
-
 $router->delete('/users/{id}', 'UserController@destroy');
+
+//userjob
+$router->get('/usersjob','UserJobController@index');
+$router->get('/userjob/{id}','UserJobController@show'); // get user by id
